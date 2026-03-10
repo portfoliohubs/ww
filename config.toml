@@ -175,6 +175,9 @@ defaultContentLanguage = "en"
     google_analytics_measurement_id = ""
 
   [params.ui]
+    # Floating download CV button
+    floating_cv_button = true
+    
     [params.ui.nav]
       profile = "Profile"
       skills = "Skills"

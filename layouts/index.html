@@ -1973,23 +1973,28 @@
             initNavigation();
             initFooter();
             // Download CV button
-            document.getElementById('downloadCvBtn').addEventListener('click', async function() {
-                const btn = this;
-                const oldHtml = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-                try {
-                    console.log('Starting PDF generation...');
-                    await generateCvPdf();
-                    console.log('PDF generated successfully');
-                } catch (error) {
-                    console.error('PDF generation failed:', error);
-                    alert('Failed to generate PDF. Please check console for details.');
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = oldHtml;
-                }
-            });
+            {{ if .Site.Params.ui.floating_cv_button }}
+            const downloadBtn = document.getElementById('downloadCvBtn');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', async function() {
+                    const btn = this;
+                    const oldHtml = btn.innerHTML;
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                    try {
+                        console.log('Starting PDF generation...');
+                        await generateCvPdf();
+                        console.log('PDF generated successfully');
+                    } catch (error) {
+                        console.error('PDF generation failed:', error);
+                        alert('Failed to generate PDF. Please check console for details.');
+                    } finally {
+                        btn.disabled = false;
+                        btn.innerHTML = oldHtml;
+                    }
+                });
+            }
+            {{ end }}
         });
 
         // Theme Toggle
@@ -2083,10 +2088,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.min.js"></script>
 
+    {{ if .Site.Params.ui.floating_cv_button }}
     <!-- Floating Button -->
     <button type="button" class="floating-btn" id="downloadCvBtn" aria-label="Download CV PDF">
         <i class="fas fa-file-arrow-down"></i>
     </button>
+    {{ end }}
 
     </body>
 </html>
