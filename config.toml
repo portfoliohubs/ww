@@ -292,7 +292,7 @@ defaultContentLanguage = "en"
 
     [[params.education.timeline]]
       year = "2026"
-      event = "CEO of DentalHubs Agency"
+      event = "Founder & Web Developer of portfolioHubs"
     
     # Certificates (images will be uploaded via GitHub issues)
     # [[params.education.certificates]]
@@ -442,7 +442,7 @@ defaultContentLanguage = "en"
       event = "فترة التدريب (الامتياز) في المستشفى الجامعي"
 
     [[params.ar.education.timeline]]
-      event = "الرئيس التنفيذي لوكالة DentalHubs"  
+      event = "مؤسس PortfolioHubs ومتخصص تطوير المواقع"  
 
   [params.ar.contact.location]
     address = "123 الشارع الرئيسي، المدينة، البلد"
