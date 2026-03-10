@@ -176,7 +176,7 @@ defaultContentLanguage = "en"
 
   [params.ui]
     # Floating download CV button
-    floating_cv_button = true
+    floating_cv_button = false
     
     [params.ui.nav]
       profile = "Profile"
